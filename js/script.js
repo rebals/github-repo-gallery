@@ -38,7 +38,7 @@ const displayUserInfo = function (data) {
         </div>
     `;
     overview.append(div);
-    displayRepos(username);
+    displayRepos();
 };
 
 const displayRepos = async function(){
@@ -68,11 +68,11 @@ repoList.addEventListener("click", function(e){
 const specificRepoInfo = async function(repoName){
     const specificRepo = await fetch (`https:api.github.com/repos/${username}/${repoName}`);
     const repoInfo = await specificRepo.json();
-    console.log(repoInfo);
+    // console.log(repoInfo);
 
     const fetchLanguages = await fetch (repoInfo.languages_url);
     const languageData = await fetchLanguages.json();
-    // console.log(languageData);
+    console.log(languageData);
 
     const languages = [];
     for (const language in languageData){
