@@ -85,10 +85,7 @@ const specificRepoInfo = async function(repoName){
 
 const displaySpecificRepo = function(repoInfo,languages) {
     repoData.innerHTML = "";
-    returnButton.classList.remove("hide");
-
-    repoData.classList.remove("hide");
-    repoInformation.classList.add("hide");
+    
     const div = document.createElement ("div");
     div.innerHTML = `
         <h3>Name: ${repoInfo.name}</h3>
@@ -98,6 +95,10 @@ const displaySpecificRepo = function(repoInfo,languages) {
         <a class="visit" href="${repoInfo.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>
     `;
     repoData.append(div);
+
+    returnButton.classList.remove("hide");
+    repoData.classList.remove("hide");
+    repoInformation.classList.add("hide");
 };
 
 returnButton.addEventListener("click", function(){
@@ -108,6 +109,7 @@ returnButton.addEventListener("click", function(){
 
 filterInput.addEventListener("input", function(e){
     const searchText = e.target.value;
+    console.log(searchText);
     const repos = document.querySelectorAll(".repo");
     const searchTextLower = searchText.toLowerCase();
     for (const repo of repos){
@@ -118,4 +120,4 @@ filterInput.addEventListener("input", function(e){
             repo.classList.add("hide");
         }
     }
-})
+});
