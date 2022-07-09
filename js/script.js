@@ -38,7 +38,7 @@ const displayUserInfo = function (data) {
         </div>
     `;
     overview.append(div);
-    displayRepos();
+    displayRepos(username);
 };
 
 const displayRepos = async function(){
